@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="score-container">Score: <span id="user-score">0</span></div>
+        <div id="question-container"></div>
+        <ul id="choices-container"></ul>
+        <button id="next-btn" disabled>Next Question</button>
+        <!-- <button id="submit-btn" disabled>Submit Quiz</button> -->
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
