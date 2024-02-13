@@ -126,5 +126,5 @@ const user = new User(username);
 const quiz = new Quiz(user);
 
 document.getElementById('next-btn').addEventListener('click', function () {
-    quiz.handleAnswer();
+    this.handleAnswer();
 }.bind(quiz));
