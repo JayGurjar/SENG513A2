@@ -1,3 +1,14 @@
+class User {
+    constructor(username) {
+        this.username = username;
+        this.score = 0;
+    }
+
+    increaseScore() {
+        this.score++;
+    }
+}
+
 class Question {
     constructor(text, choices, correctAnswer) {
         this.text = text;
@@ -12,10 +23,10 @@ class Question {
 }
 
 class Quiz {
-    constructor() {
+    constructor(user) {
+        this.user = user;
         this.questions = [];
         this.currentQuestionIndex = 0;
-        this.score = 0;
         this.difficulty = 'easy';
         this.questionsPerFetch = 5;
         this.lastFiveAnswers = []; // Array to store the last 5 answers
@@ -42,6 +53,9 @@ class Quiz {
         const choicesContainer = document.getElementById('choices-container');
         const nextButton = document.getElementById('next-btn');
         const userScoreElement = document.getElementById('user-score');
+        const usernameContainer = document.getElementById('username-container');
+
+        usernameContainer.innerHTML = `Username: ${this.user.username}`;
 
         questionContainer.innerHTML = `<p>${currentQuestion.text}</p>`;
         choicesContainer.innerHTML = currentQuestion.choices.map((choice, index) => `
@@ -55,7 +69,7 @@ class Quiz {
         choicesContainer.addEventListener('change', () => {
             nextButton.disabled = document.querySelectorAll('.choice-checkbox:checked').length !== 1;
         });
-        userScoreElement.innerText = this.score;
+        userScoreElement.innerText = this.user.score;
     }
 
     handleAnswer() {
@@ -69,7 +83,7 @@ class Quiz {
         }
 
         if (isCorrect) {
-            this.score++;
+            this.user.increaseScore();
             alert('Correct!');
         } else {
             alert('Incorrect!');
@@ -104,12 +118,10 @@ class Quiz {
     }
 }
 
-const quiz = new Quiz();
+const username = prompt("Enter your username:");
+const user = new User(username);
+const quiz = new Quiz(user);
 
 document.getElementById('next-btn').addEventListener('click', function () {
     quiz.handleAnswer();
 }.bind(quiz));
-
-// document.getElementById('submit-btn').addEventListener('click', function () {
-//     quiz.handleAnswer();
-// }.bind(quiz));
