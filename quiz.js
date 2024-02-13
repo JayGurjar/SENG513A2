@@ -82,7 +82,7 @@ class Quiz {
 
         this.lastFiveAnswers.push(isCorrect);
         if (this.lastFiveAnswers.length > 5) {
-            this.lastFiveAnswers.shift(); // Remove the oldest answer if the array exceeds 5
+            this.lastFiveAnswers.shift();
         }
 
         if (isCorrect) {
