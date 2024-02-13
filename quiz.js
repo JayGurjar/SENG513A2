@@ -54,6 +54,9 @@ class Quiz {
         const nextButton = document.getElementById('next-btn');
         const userScoreElement = document.getElementById('user-score');
         const usernameContainer = document.getElementById('username-container');
+        const difficultyContainer = document.getElementById('difficulty-container');
+
+        difficultyContainer.innerHTML = `Difficulty: ${this.difficulty?.toUpperCase()}`;
 
         usernameContainer.innerHTML = `Username: ${this.user.username}`;
 

@@ -23,6 +23,9 @@
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative; /* Required for absolute positioning of difficulty container */
         }
 
         #username-container {
@@ -30,21 +33,28 @@
         }
 
         #score-container {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         #score-container span {
             font-weight: bold;
         }
 
+        #difficulty-container {
+            position: absolute;
+            right: 0;
+            margin-right: 20px; /* Adjust this value as needed */
+        }
+
         #question-container {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         #choices-container {
             list-style-type: none;
             padding: 0;
             margin-bottom: 20px;
+            margin-top: 0px;
         }
 
         #choices-container li {
@@ -84,6 +94,7 @@
     <div id="quiz-container">
         <div id="username-container"></div>
         <div id="score-container">Score: <span id="user-score">0</span></div>
+        <div id="difficulty-container">Difficulty</div>
         <div id="question-container"></div>
         <ul id="choices-container"></ul>
         <button id="next-btn" disabled>Next Question</button>
